@@ -8,6 +8,25 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
   <link href="/stylesheets/payment.css" rel="stylesheet">
   <link href="/stylesheets/modal.css" rel="stylesheet">
+  <script language="JavaScript">
+    function showInput() {
+      document.getElementById('display').innerHTML =
+        document.getElementById("name").value;
+
+
+
+
+      if (document.getElementById('title_1').checked) {
+        //Male radio button is checked
+        document.getElementById('title1').innerHTML =
+          document.getElementById("title_1").value;
+      } else if (document.getElementById('title_2').checked) {
+        //Female radio button is checked
+        document.getElementById('title2').innerHTML =
+          document.getElementById("title_2").value;
+      }
+    }
+  </script>
 </head>
 
 <body>
@@ -21,7 +40,7 @@
         <ul>
           <li>
             <label for="title_1">
-              <input type="radio" id="title_1" name="title" value="M.">
+              <input type="radio" id="title_1" name="title" value="Mr.">
               Mister
             </label>
           </li>
@@ -84,18 +103,20 @@
       </p>
     </section>
     <section>
-      <p> <button type="submit">Validate the payment</button> </p>
+      <p>
+
+        <!--  <button type="submit">Validate the payment</button> </p>  -->
     </section>
 
 
     <!-- Modal HTML embedded directly into document -->
     <div id="ex1" class="modal">
-      <p>Thank you for your payment,</p>
+      <p>Thank you for your payment, <span id='title1'></span> <span id='title2'></span> <span id='display'></span></p>
       <a href="#" rel="modal:close">Close</a>
     </div>
 
     <!-- Link to open the modal -->
-    <p><a href="#ex1" rel="modal:open">Open Modal</a></p>
+    <p><a href="#ex1" rel="modal:open"><button type="submit" onclick="showInput();">Confirm Payment</button></a></p>
 
 
   </form>
